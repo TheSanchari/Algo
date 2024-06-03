@@ -72,14 +72,19 @@ class LinkedList {
             return undefined
         } else {
             let temp = this.head
-            for (let i=0;i<index;i++) {
+            for (let i=1;i<index;i++) {
                 temp = temp.next
             }
             return temp
         }
     }
     setItems(index,value) {
-        
+        if(index<1 || index > this.length) {
+            return undefined
+        } else {
+            let temp = this.getItems(index)
+            temp.value = value
+        }
     }
 
 }
@@ -89,8 +94,9 @@ myLinkedList.addElement(7)
 myLinkedList.addElement(16)
 myLinkedList.addElement(22)
 myLinkedList.addElement(8)
-myLinkedList.removeElement(8)
-myLinkedList.unshift(15)
+// myLinkedList.removeElement(8)
+// myLinkedList.unshift(15)
 // myLinkedList.shift()
-console.log('index',myLinkedList.getItems(-1))
-console.log(JSON.stringify(myLinkedList) )
+console.log('before',JSON.stringify(myLinkedList))
+myLinkedList.setItems(4,17)
+console.log('After',JSON.stringify(myLinkedList))
