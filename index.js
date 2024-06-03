@@ -86,6 +86,34 @@ class LinkedList {
             temp.value = value
         }
     }
+    insertItem(index,value) {
+        if(index<1) {
+            return undefined
+        } else if(index == 1) {
+            this.unshift(value)
+        } else if( index == this.length) {
+            let createdNode = new Node(value)
+            this.tail.next = createdNode
+            this.tail = createdNode
+            this.length++
+        } else if(!this.head || this.length ==0){
+            let createdNode = new Node(value)
+            console.log('created',createdNode)
+            this.head = createdNode
+            this.tail = this.head
+            this.length++
+        } else {
+            let temp = this.head
+            for(let i=1;i<index-1;i++) {
+                temp = temp.next
+                console.log('temp',temp)
+            }
+            let createdNode = new Node(value)
+            createdNode.next = temp.next
+            temp.next = createdNode
+            this.length++
+        }
+    }
 
 }
 
@@ -94,9 +122,10 @@ myLinkedList.addElement(7)
 myLinkedList.addElement(16)
 myLinkedList.addElement(22)
 myLinkedList.addElement(8)
-// myLinkedList.removeElement(8)
+// myLinkedList.removeElement(4)
 // myLinkedList.unshift(15)
 // myLinkedList.shift()
 console.log('before',JSON.stringify(myLinkedList))
-myLinkedList.setItems(4,17)
+// myLinkedList.setItems(4,17)
+myLinkedList.insertItem(4,100)
 console.log('After',JSON.stringify(myLinkedList))
