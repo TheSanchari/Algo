@@ -114,8 +114,32 @@ class LinkedList {
             this.length++
         }
     }
+    removeByIndex(index) {
+        if(index<1)
+            {
+             return undefined
+            }
+        else if(index > this.length) {
+            return undefined
+        } else if(index == 1) {
+            this.head = this.head.next
+        }else {
+            let temp = this.head
+            for(let i=1;i<index-1;i++)
+                {
+                    temp = temp.next
+                    console.log(temp)
+                }
+            let prevItem = temp
+            prevItem.next = temp.next.next
+            if(prevItem.next == null) {
+                this.tail = prevItem
+            }
+        }
+            this.length --
+        }
+    }
 
-}
 
 const myLinkedList = new LinkedList(4)
 myLinkedList.addElement(7)
@@ -127,5 +151,6 @@ myLinkedList.addElement(8)
 // myLinkedList.shift()
 console.log('before',JSON.stringify(myLinkedList))
 // myLinkedList.setItems(4,17)
-myLinkedList.insertItem(4,100)
+// myLinkedList.insertItem(4,100)
+myLinkedList.removeByIndex(1)
 console.log('After',JSON.stringify(myLinkedList))
