@@ -138,19 +138,38 @@ class LinkedList {
         }
             this.length --
         }
+        findMiddleNode(){
+            let slow = this.head
+            let fast = this.head
+            while(fast !== null && fast.next!== null) {
+                console.log('fast each pass',fast)
+                slow = slow.next
+                fast = fast.next.next
+            }
+            console.log('fast',fast)
+            return slow
+        }
+    
     }
 
+    
 
 const myLinkedList = new LinkedList(4)
 myLinkedList.addElement(7)
 myLinkedList.addElement(16)
 myLinkedList.addElement(22)
 myLinkedList.addElement(8)
+myLinkedList.addElement(18)
+myLinkedList.addElement(98)
+myLinkedList.addElement(89)
+myLinkedList.addElement(128)
 // myLinkedList.removeElement(4)
 // myLinkedList.unshift(15)
 // myLinkedList.shift()
-console.log('before',JSON.stringify(myLinkedList))
+// console.log('before',JSON.stringify(myLinkedList))
 // myLinkedList.setItems(4,17)
 // myLinkedList.insertItem(4,100)
-myLinkedList.removeByIndex(1)
-console.log('After',JSON.stringify(myLinkedList))
+// myLinkedList.removeByIndex(1)
+console.log('Actual List',JSON.stringify(myLinkedList))
+console.log('ans',myLinkedList.findMiddleNode())
+// 1->2->3->4->5->6->7
