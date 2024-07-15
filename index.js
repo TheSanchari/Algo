@@ -138,17 +138,27 @@ class LinkedList {
         }
             this.length --
         }
-        findMiddleNode(){
-            let slow = this.head
-            let fast = this.head
-            while(fast !== null && fast.next!== null) {
-                console.log('fast each pass',fast)
-                slow = slow.next
-                fast = fast.next.next
-            }
-            console.log('fast',fast)
-            return slow
+    findMiddleNode(){
+        let slow = this.head
+        let fast = this.head
+        while(fast !== null && fast.next!== null) {
+            console.log('fast each pass',fast)
+            slow = slow.next
+            fast = fast.next.next
         }
+        console.log('fast',fast)
+        return slow
+    }
+    hasLoop () {
+        let slow = this.head
+        let fast = this.head
+        while(fast !== null && fast.next!==null){
+            slow = slow.next
+            fast = fast.next.next
+            if( fast == slow) return true
+        }
+        return false
+    }
     
     }
 
