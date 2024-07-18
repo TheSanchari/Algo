@@ -159,7 +159,23 @@ class LinkedList {
         }
         return false
     }
-    
+    findKthFromEnd(k) {
+        let fast = this.head
+        let slow = this.head
+        if(k===0 || k< 0) return null
+        if(k===1) return this.tail
+        for(let i=0;i<k;i++) {
+            if(fast === null) return null
+            fast = fast.next
+        }
+        
+        while(fast!=null) {
+            console.log(slow)
+            slow = slow.next
+            fast = fast.next
+        }
+        return slow
+    }
     }
 
     
