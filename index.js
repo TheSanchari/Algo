@@ -169,6 +169,7 @@ class LinkedList {
             fast = fast.next
         }
         
+        
         while(fast!=null) {
             console.log(slow)
             slow = slow.next
